@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using HotelBookingAPI.Data;
 using HotelBookingAPI.Models;
@@ -19,8 +14,8 @@ namespace HotelBookingAPI.Controllers
         {
             _context = context;
         }
-
-        // CREATE/EDIT
+        
+        // CREATE/EDIT 
         [HttpPost]
         public JsonResult CreateEdit(HotelBooking booking)
         {
@@ -33,8 +28,6 @@ namespace HotelBookingAPI.Controllers
 
                 if (bookingInDb == null)
                     return new JsonResult(NotFound());
-
-                bookingInDb = booking;
             }
 
             _context.SaveChanges();
